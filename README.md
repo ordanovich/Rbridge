@@ -1,4 +1,4 @@
-## R-ArcGIS bridge
+## R-ArcGIS bridge :bridge_at_night:
 
 [R-ArcGIS bridge](https://r-arcgis.github.io/), developed and maintained by [Esri](https://www.esri.com/en-us/home), is a little-known secret :fire: to extend the functionality of geoprocessing tools in ArcGIS.
 
@@ -10,7 +10,7 @@ Get started with the R-ArcGIS Bridge :
 - [Complete technical documentation](https://r-arcgis.github.io/assets/arcgisbinding.pdf) 
 - [R-ArcGIS Bridge Workflow Demo](https://community.esri.com/videos/3343)
 
-## Extensions for the Web Portal for Health and Population in Spain
+## Extensions for the Web Portal for Health :hospital: and Population :family: in Spain :es:
 
 Here you can access the source scripts of the geoprocessing tools built upon the **arcgisbinding** package. To start you off, we have developed three tools that are thought to be executed sequentially.
 
