@@ -20,12 +20,12 @@ The code for this tool is wrapped in the [eurostat_download_data_tool.R](https:/
 
 Main steps the script goes through:
 
-- Defining input and output parameters of the script, in the exact order it will be specify by the user in the geoprocessing tool interface
+- Defining input and output parameters of the script, in the exact order it will be specified by the user in the geoprocessing tool interface:
 ```r
   intput_toc_table <- in_params[[1]]            # csv table provided to you
   input_toc_title <- in_params[[2]]             # title of user choice
   input_nuts_spain_limits <- in_params[[3]]     # limit or not by spain, possible options "Yes" or "No"
-  input_nuts_level <- in_params[[4]]            # level pf administrative dissagregation, possible options 0,1,2 or 3
+  input_nuts_level <- in_params[[4]]            # level of dissagregation, possible options 0,1,2 or 3
   
   output_nuts <- out_params[[1]]                # where the output spatial data will be saved to
   output_dic <- out_params[[2]]                 # label dictionary, non-spatial dataset
@@ -38,15 +38,25 @@ Main steps the script goes through:
                                     resolution = "60",
                                     nuts_level = input_nuts_level) %>%
       select(-c(id, NUTS_NAME, FID)) %>%
-      filter(CNTR_CODE == "ES")
- }
+      filter(CNTR_CODE == "ES") ... }
 ```
-- Get the code for the selected table from the pre-loaded list
+- Getting the code for the selected table from the pre-loaded list:
 ```r
 toc <- arc.open(intput_toc_table) %>% arc.select(where_clause = input_toc_title)
 cc <- toc$code
 ```
-- 
+- Downloading the data directly from the source repository:
+```r
+as.data.frame(get_eurostat(id = cc))%>%
+      label_eurostat(fix_duplicated=T, code = "geo") %>%
+      mutate_if(is.factor, as.character) %>%
+      as.data.frame() %>% 
+      mutate(time = as.POSIXct(time))-> data
+```
+- Merging the retrieved dataset with the spatial data and writing it to the output location provided by the user:
+```r
+arc.write(output_nuts, merge(nuts, data, by = "geo_code"))
+```
 
 ![](https://github.com/ordanovich/images/blob/master/2019-08-14_14h17_23.png?raw=true)
 
