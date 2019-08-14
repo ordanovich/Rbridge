@@ -14,7 +14,7 @@ Get started with the R-ArcGIS Bridge :
 
 Here you can access the source scripts of the geoprocessing tools built upon the **arcgisbinding** package. To start you off, we have developed three tools that are thought to be executed sequentially.
 
-## :one: :inbox_tray: Retrieve data from Eurostat
+:one: :inbox_tray: Retrieve data from Eurostat
 ### :two: Apply transformation to the dataset
 ### :three: Create a ternary composition map
 
