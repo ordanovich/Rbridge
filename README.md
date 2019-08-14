@@ -2,7 +2,7 @@
 
 [R-ArcGIS bridge](https://r-arcgis.github.io/), developed and maintained by [Esri](https://www.esri.com/en-us/home), is a little-known secret to extend the functionality of geoprocessing tools in ArcGIS.
 
-> As a data scientist, you might use several tools that help you answer complicated questions about patterns and relationships that occur in the data you are working with. R is one of those tools that provides a variety of packages containing functions for (geo)statistical analysis. Using the bridge between R and ArcGIS, you can easily access geographic data and take advantage of ArcGIS software while performing your analysis using R on the background. It is also possible to generelize your work and convert these R scripts into geoprocessing tools so you or anyone you want to share it with could run them directly in ArcGIS as a typical standalone or built-in in a (e.g. ModelBuilder) workflow tool.
+> As a data scientist, you might be already using several tools that help you find answers to sometimes very complicated questions about the patterns and relationships ocurring in your data. R is one of those tools that provides a variety of packages containing functions for (geo)statistical analysis. Using the bridge between R and ArcGIS, you can easily access geographic data and take advantage of ArcGIS software while performing your analysis using R on the background. It is also possible to generelize your work and convert these R scripts into geoprocessing tools so you or anyone you want to share it with could run them directly in ArcGIS as a typical standalone or built-in in a (e.g. ModelBuilder) workflow tool.
 
 Get started with the R-ArcGIS Bridge :
 
@@ -30,7 +30,16 @@ Main steps the script goes through:
   output_nuts <- out_params[[1]]                # where the output spatial data will be saved to
   output_dic <- out_params[[2]]                 # label dictionary, non-spatial dataset
 ```
-- Retrieving spatial data for selected NUTS level. If you want to limit your data by Spain only you can set up a conditinal statement e.g.:
+> Please note that [eurostat_toc.csv](https://raw.githubusercontent.com/ordanovich/extensions_rbridge/master/eurostat_toc.csv) was provided for your convenience, but you can always generate the last update by running the following:
+
+```r
+get_eurostat_toc() %>%
+  filter(type %in% c("dataset", "table")) %>% 
+  distinct() %>%
+  write.csv(file = "eurostat_toc.csv")
+```
+
+- Retrieving spatial data for selected NUTS level. If you want to limit your data to Spain you can set up a conditinal statement e.g.:
 ```r
  if(input_nuts_spain_limits == "Yes"){
     
