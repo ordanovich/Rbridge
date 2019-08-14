@@ -84,7 +84,7 @@ Once it´s done, move on the *Parameters* and specify each of the input and outp
 The tool inteface looks like a traditional geoprocesing ArcGIS tool, however it uses R code you wrote on the background- 
 
 <p align="center">
-  <img src="https://github.com/ordanovich/images/blob/master/2019-08-14_17h57_16.png?raw=true">
+  <img src="https://github.com/ordanovich/images/blob/master/2019-08-14_17h57_17.jpg?raw=true">
 </p>
 
 ### :two: Apply transformation to the dataset
