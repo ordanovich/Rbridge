@@ -71,15 +71,21 @@ arc.write(output_nuts, merge(nuts, data, by = "geo_code"))
 ```
 When the script is completed and wrapped in `tool_exec<- function(in_params, out_params){...}` you should create a new script in an ArcGIS toolbox, either new or pre-existing. In the script properties link it to the R code location on the disk:
 
-<img src="https://github.com/ordanovich/images/blob/master/2019-08-14_14h17_59.png?raw=true" alt="" class="center">
+<p align="center">
+  <img width="460" height="300" src="https://github.com/ordanovich/images/blob/master/2019-08-14_14h17_59.png?raw=true">
+</p>
 
 Once it´s done, move on the *Parameters* and specify each of the input and output variables in the order you put it in the script itself. You should come up with 4 input :arrow_down: (Table, SQL Expression, Character and Numeric) and 2 output :arrow_up: (Feature Class and Data Table) variables:
 
-![](https://github.com/ordanovich/images/blob/master/2019-08-14_14h43_32.png?raw=true)
+<p align="center">
+  <img width="460" height="300" src="https://github.com/ordanovich/images/blob/master/2019-08-14_14h43_32.png?raw=true">
+</p>
 
 The tool inteface looks like a traditional geoprocesing ArcGIS tool, however it uses R code you wrote on the background- 
 
-<img src="https://github.com/ordanovich/images/blob/master/2019-08-14_17h57_16.png?raw=true" alt="" class="center">
+<p align="center">
+  <img width="460" height="300" src="https://github.com/ordanovich/images/blob/master/2019-08-14_17h57_16.png?raw=true">
+</p>
 
 ### :two: Apply transformation to the dataset
 ### :three: Create a ternary composition map
