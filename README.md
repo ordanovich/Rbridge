@@ -16,7 +16,7 @@ Here you can access the source scripts of the geoprocessing tools built upon the
 
 ### :one: Retrieve data from Eurostat
 
-The full code for this tool is prpovided to you in the [eurostat_download_data_tool.R](https://github.com/ordanovich/extensions_rbridge/blob/master/eurostat_download_data_tool.R) script. 
+The full code for this tool is provided in the [eurostat_download_data_tool.R](https://github.com/ordanovich/extensions_rbridge/blob/master/eurostat_download_data_tool.R) script. 
 
 Main steps the script goes through:
 
@@ -75,13 +75,13 @@ When the script is completed and wrapped in `tool_exec<- function(in_params, out
   <img src="https://github.com/ordanovich/images/blob/master/2019-08-14_14h17_59.png?raw=true">
 </p>
 
-Once it´s done, move on the *Parameters* and specify each of the input and output variables in the order you put it in the script itself. You should come up with 4 input :arrow_down: (Table, SQL Expression, Character and Numeric) and 2 output :arrow_up: (Feature Class and Data Table) variables:
+Once it´s done, move to the *Parameters* and specify each of the input and output variables in the order you list it in the script. You should come up with 4 input :arrow_down: (Table, SQL Expression, Character and Numeric) and 2 output :arrow_up: (Feature Class and Data Table) variables:
 
 <p align="center">
   <img src="https://github.com/ordanovich/images/blob/master/2019-08-14_14h43_32.png?raw=true">
 </p>
 
-The tool inteface looks like a traditional geoprocesing ArcGIS tool, however it uses your R code on the background.
+The inteface of this brand new tool looks like a traditional geoprocesing ArcGIS tool, however it uses your R code on the background.
 
 <p align="center">
   <img src="https://github.com/ordanovich/images/blob/master/2019-08-14_17h57_17.jpg?raw=true">
@@ -89,7 +89,34 @@ The tool inteface looks like a traditional geoprocesing ArcGIS tool, however it 
 
 ### :two: Apply transformation to the dataset
 
+[data_transformation_tool.R](https://github.com/ordanovich/extensions_rbridge/blob/master/data_transformation_tool.R) corresponds to the second step in the process of preparing your data so it´s suitable for ternary map generation. 
 
+- Following the same logic we explained in the **Step 1**, let´s set up inputs and outputs:
+
+```r
+  input_data <- in_params[[1]]                # spatial data you created at the previous step
+  input_field_to_transpose <- in_params[[2]]  # name of the variable you want your ternary composition for
+  input_filter_expression <- in_params[[3]]   # filtering expression for your dataset in order to avoid ambiguity
+  
+  output_data <- out_params[[1]]              # transformed spatial data
+  output_dic <- out_params[[2]]               # labelling dictionary
+```
+
+- Now proceed with some simple data wrangling:
+
+```r
+arc.open(input_data) %>%
+    arc.select(where_clause = input_filter_expression) %>% 
+    arc.data2sf() %>%
+    select(geo, input_field_to_transpose, values) %>%
+    set_colnames(c("geo", "variable", "value", "geometry")) %>%
+    left_join(get_eurostat_dic(input_field_to_transpose, lang = "en") %>% 
+                               as.data.frame() %>%
+                               set_colnames(c("code", "variable")),
+              by = "variable") %>%
+    select(-variable) %>% 
+    dcast(geo ~ code) -> -> d_trans
+```
 
 ### :three: Create a ternary composition map
 
