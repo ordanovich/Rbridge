@@ -1,4 +1,4 @@
-## :bridge_at_night: R-ArcGIS bridge 
+## :bridge_at_night: R-ArcGIS Bridge 
 
 [R-ArcGIS bridge](https://r-arcgis.github.io/), developed and maintained by [Esri](https://www.esri.com/en-us/home), is a little-known secret to extend the functionality of geoprocessing tools in ArcGIS.
 
