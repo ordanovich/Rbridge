@@ -16,7 +16,7 @@ Here you can access the source scripts of the geoprocessing tools built upon the
 
 ### :one: Retrieve data from Eurostat
 
-The code for this tool is wrapped in the [eurostat_download_data_tool.R](https://github.com/ordanovich/extensions_rbridge/blob/master/eurostat_download_data_tool.R) script. 
+The full code for this tool is prpovided to you in the [eurostat_download_data_tool.R](https://github.com/ordanovich/extensions_rbridge/blob/master/eurostat_download_data_tool.R) script. 
 
 Main steps the script goes through:
 
@@ -81,13 +81,16 @@ Once it´s done, move on the *Parameters* and specify each of the input and outp
   <img src="https://github.com/ordanovich/images/blob/master/2019-08-14_14h43_32.png?raw=true">
 </p>
 
-The tool inteface looks like a traditional geoprocesing ArcGIS tool, however it uses R code you wrote on the background- 
+The tool inteface looks like a traditional geoprocesing ArcGIS tool, however it uses your R code on the background.
 
 <p align="center">
   <img src="https://github.com/ordanovich/images/blob/master/2019-08-14_17h57_17.jpg?raw=true">
 </p>
 
 ### :two: Apply transformation to the dataset
+
+
+
 ### :three: Create a ternary composition map
 
 :+1: This PR looks great - it's ready to merge! :shipit:
