@@ -17,7 +17,7 @@ tool_exec<- function(in_params, out_params){
   require(magrittr)
   require(sf)
   
-  intput_toc_table <- in_params[[1]]
+  input_toc_table <- in_params[[1]]
   input_toc_title <- in_params[[2]]
   input_nuts_spain_limits <- in_params[[3]]
   input_nuts_level <- in_params[[4]]
@@ -28,7 +28,7 @@ tool_exec<- function(in_params, out_params){
   arc.progress_label("Table properties...")
   arc.progress_pos(40)
   
-  print(arc.open(intput_toc_table) %>% arc.select(where_clause = input_toc_title))
+  print(arc.open(input_toc_table) %>% arc.select(where_clause = input_toc_title))
 
   arc.progress_label("Downloading data...")
   arc.progress_pos(60)
@@ -43,9 +43,8 @@ tool_exec<- function(in_params, out_params){
     
     names(nuts)[4] <- "geo_code"
     
-    toc <- arc.open(intput_toc_table) %>% arc.select(where_clause = input_toc_title)
-    cc <- toc$code
-    
+    cc <- arc.open(input_toc_table) %>% arc.select(where_clause = input_toc_title) %>% pull(code)
+
     as.data.frame(get_eurostat(id = cc))%>%
       label_eurostat(fix_duplicated=T, code = "geo") %>%
       mutate_if(is.factor, as.character) %>%
@@ -77,9 +76,8 @@ tool_exec<- function(in_params, out_params){
                                     nuts_level = input_nuts_level) %>%
       select(-c(id, NUTS_NAME, FID))
     
-    toc <- arc.open(intput_toc_table) %>% arc.select(where_clause = input_toc_title)
-    cc <- toc$code
-    
+    cc <- arc.open(input_toc_table) %>% arc.select(where_clause = input_toc_title) %>% pull(code)
+
     as.data.frame(get_eurostat(id = cc))%>%
       label_eurostat(fix_duplicated=T, code = "geo") %>%
       mutate_if(is.factor, as.character) %>%
