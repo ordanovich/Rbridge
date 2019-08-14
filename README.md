@@ -70,8 +70,11 @@ as.data.frame(get_eurostat(id = cc))%>%
 arc.write(output_nuts, merge(nuts, data, by = "geo_code"))
 ```
 When the script is completed and wrapped in `r tool_exec<- function(in_params, out_params){...}` you should create a new script in an ArcGIS toolbox, either new or pre-existing. In the script properties link it to the R code location on the disk:
+
 ![](https://github.com/ordanovich/images/blob/master/2019-08-14_14h17_59.png?raw=true)
-Once it´s done, move on the *Parameters* and specify each of the input and output variables in the order you put it in the script itself. You should come up with 4 input (Table, SQL Expression, ) and 2 output (Feature Class and Data Table) variables:
+
+Once it´s done, move on the *Parameters* and specify each of the input and output variables in the order you put it in the script itself. You should come up with 4 input :arrow_down: (Table, SQL Expression, Character and Numeric) and 2 output :arrow_up: (Feature Class and Data Table) variables:
+
 ![](https://github.com/ordanovich/images/blob/master/2019-08-14_14h43_32.png?raw=true)
 
 ### :two: Apply transformation to the dataset
