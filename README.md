@@ -22,9 +22,9 @@ Main steps the script goes through:
 
 - Defining input and output parameters of the script, in the exact order it will be specified by the user in the geoprocessing tool interface:
 ```r
-  input_toc_table <- in_params[[1]]            # csv table provided to you
+  input_toc_table <- in_params[[1]]             # csv table provided to you
   input_toc_title <- in_params[[2]]             # title of user choice
-  input_nuts_spain_limits <- in_params[[3]]     # limit or not by spain, possible options "Yes" or "No"
+  input_nuts_spain_limits <- in_params[[3]]     # limit or not to Spain, possible options "Yes" or "No"
   input_nuts_level <- in_params[[4]]            # level of dissagregation, possible options 0,1,2 or 3
   
   output_nuts <- out_params[[1]]                # where the output spatial data will be saved to
@@ -69,11 +69,9 @@ as.data.frame(get_eurostat(id = cc))%>%
 ```r
 arc.write(output_nuts, merge(nuts, data, by = "geo_code"))
 ```
-
-![](https://github.com/ordanovich/images/blob/master/2019-08-14_14h17_23.png?raw=true)
-
+When the script is completed and wrapped in `r tool_exec<- function(in_params, out_params){...}` you should create a new script in an ArcGIS toolbox, either new or pre-existing. In the script properties link it to the R code location on the disk:
 ![](https://github.com/ordanovich/images/blob/master/2019-08-14_14h17_59.png?raw=true)
-
+Once it´s done, move on the *Parameters* and specify each of the input and output variables in the order you put it in the script itself. You should come up with the following:
 ![](https://github.com/ordanovich/images/blob/master/2019-08-14_14h43_32.png?raw=true)
 
 ### :two: Apply transformation to the dataset
