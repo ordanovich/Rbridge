@@ -22,7 +22,7 @@ Main steps the script goes through:
 
 - Defining input and output parameters of the script, in the exact order it will be specified by the user in the geoprocessing tool interface:
 ```r
-  intput_toc_table <- in_params[[1]]            # csv table provided to you
+  input_toc_table <- in_params[[1]]            # csv table provided to you
   input_toc_title <- in_params[[2]]             # title of user choice
   input_nuts_spain_limits <- in_params[[3]]     # limit or not by spain, possible options "Yes" or "No"
   input_nuts_level <- in_params[[4]]            # level of dissagregation, possible options 0,1,2 or 3
@@ -47,12 +47,15 @@ get_eurostat_toc() %>%
                                     resolution = "60",
                                     nuts_level = input_nuts_level) %>%
       select(-c(id, NUTS_NAME, FID)) %>%
-      filter(CNTR_CODE == "ES") ... }
+      filter(CNTR_CODE == "ES") 
+      ...
+      }
 ```
 - Getting the code for the selected table from the pre-loaded list:
 ```r
-toc <- arc.open(intput_toc_table) %>% arc.select(where_clause = input_toc_title)
-cc <- toc$code
+arc.open(input_toc_table) %>% 
+          arc.select(where_clause = input_toc_title) %>%
+          pull(code) -> cc
 ```
 - Downloading the data directly from the source repository:
 ```r
