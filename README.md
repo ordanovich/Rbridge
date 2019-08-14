@@ -23,7 +23,7 @@ install.packages("eurostat")
 
 ![](https://github.com/ordanovich/images/blob/master/2019-08-14_14h17_59.png?raw=true)
 
-![](https://github.com/ordanovich/images/blob/master/2019-08-14_14h21_56.png?raw=true)
+![](https://github.com/ordanovich/images/blob/master/2019-08-14_14h43_32.png?raw=true)
 
 ### :two: Apply transformation to the dataset
 ### :three: Create a ternary composition map
