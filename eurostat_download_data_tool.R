@@ -76,21 +76,22 @@ tool_exec<- function(in_params, out_params){
                                     nuts_level = input_nuts_level) %>%
       select(-c(id, NUTS_NAME, FID))
     
+    names(nuts)[4] <- "geo_code"
+    
     cc <- arc.open(input_toc_table) %>% arc.select(where_clause = input_toc_title) %>% pull(code)
-
+    
     as.data.frame(get_eurostat(id = cc))%>%
-      label_eurostat(fix_duplicated=T, code = "geo") %>%
-      mutate_if(is.factor, as.character) %>%
-      as.data.frame() %>% 
-      mutate(time = as.POSIXct(time))-> data
+                label_eurostat(fix_duplicated=T, code = "geo") %>%
+                mutate_if(is.factor, as.character) %>%
+                as.data.frame() %>% 
+                mutate(time = as.POSIXct(time))-> data
     
     arc.progress_label("Writing output...")
     arc.progress_pos(80)
     
     nn <- merge(nuts,
                 data,
-                by.x = "geo",
-                by.y = "geo_code")
+                by = "geo_code")
     
     arc.write(output_nuts, 
               nn %>% st_transform(3035))
