@@ -96,7 +96,7 @@ The inteface of this brand new tool looks like a traditional geoprocesing ArcGIS
 ```r
   input_data <- in_params[[1]]                # spatial data you created at the previous step
   input_field_to_transpose <- in_params[[2]]  # name of the variable you want your ternary composition for
-  input_filter_expression <- in_params[[3]]   # filtering expression for your dataset in order to avoid ambiguity
+  input_filter_expression <- in_params[[3]]   # filtering expression for your dataset to avoid ambiguity
   
   output_data <- out_params[[1]]              # transformed spatial data
   output_dic <- out_params[[2]]               # labelling dictionary
