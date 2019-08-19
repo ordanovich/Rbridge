@@ -12,15 +12,15 @@ Get started with the R-ArcGIS Bridge :
 
 ## :hospital: Extensions for the Web Portal for Health and Population in Spain
 
-Here you can access the source scripts of the geoprocessing tools built upon the **arcgisbinding** package. To start you off, we have developed three tools that are thought to be executed sequentially.
+Here you can access the source scripts of the geoprocessing tools built upon the [**arcgisbinding** package](https://r-arcgis.github.io/assets/arcgisbinding-vignette.html). To start you off, we have developed three tools that are thought to be executed sequentially.
 
 ### :one: Retrieve data from Eurostat
 
 The full code for this tool is provided in the [eurostat_download_data_tool.R](https://github.com/ordanovich/extensions_rbridge/blob/master/eurostat_download_data_tool.R) script. 
 
-Main steps the script goes through:
+Main steps this script goes through:
 
-- Defining input and output parameters of the script, in the exact order it will be specified by the user in the geoprocessing tool interface:
+:point_right: Definition of the input and output parameters of the script, in the exact order it will be specified by the user in the geoprocessing tool interface:
 ```r
   input_toc_table <- in_params[[1]]             # csv table provided to you
   input_toc_title <- in_params[[2]]             # title of user choice
@@ -39,7 +39,7 @@ get_eurostat_toc() %>%
   write.csv(file = "eurostat_toc.csv")
 ```
 
-- Retrieving spatial data for selected NUTS level. If you want to limit your data to Spain you can set up a conditinal statement e.g.:
+:point_right: Retrieval of the spatial data for selected NUTS level. If you want to limit your data to Spain you can set up a conditinal statement e.g.:
 ```r
  if(input_nuts_spain_limits == "Yes"){
     
@@ -51,13 +51,13 @@ get_eurostat_toc() %>%
       ...
       }
 ```
-- Getting the code for the selected table from the pre-loaded list:
+:point_right: Getting the **code** for the selected table from the pre-loaded list:
 ```r
 arc.open(input_toc_table) %>% 
           arc.select(where_clause = input_toc_title) %>%
           pull(code) -> cc
 ```
-- Downloading the data directly from the source repository:
+:point_right: Direct data download from the source repository:
 ```r
 as.data.frame(get_eurostat(id = cc))%>%
       label_eurostat(fix_duplicated=T, code = "geo") %>%
@@ -65,11 +65,11 @@ as.data.frame(get_eurostat(id = cc))%>%
       as.data.frame() %>% 
       mutate(time = as.POSIXct(time))-> data
 ```
-- Merging the retrieved dataset with the spatial data and writing it to the output location provided by the user:
+:point_right: Merging retrieved dataset with the spatial data and writing it to the output location provided by the user:
 ```r
 arc.write(output_nuts, merge(nuts, data, by = "geo_code"))
 ```
-When the script is completed and wrapped in `tool_exec<- function(in_params, out_params){...}` you should create a new script in an ArcGIS toolbox, either new or pre-existing. In the script properties link it to the R code location on the disk:
+When the script is completed and wrapped in `tool_exec<- function(in_params, out_params){...}` you should create a new script in an **ArcGIS toolbox**, either new or pre-existing. In the script properties link it to the R code location on the disk:
 
 <p align="center">
   <img src="https://github.com/ordanovich/images/blob/master/2019-08-14_14h17_59.png?raw=true">
@@ -91,7 +91,7 @@ The inteface of this brand new tool looks like a traditional geoprocesing ArcGIS
 
 [data_transformation_tool.R](https://github.com/ordanovich/extensions_rbridge/blob/master/data_transformation_tool.R) corresponds to the second step in the process of preparing your data so it´s suitable for ternary map generation. 
 
-- Following the same logic we explained in the **Step 1**, let´s set up inputs and outputs:
+:point_right: Following the same logic we explained in the **Step 1**, let´s set up inputs and outputs:
 
 ```r
   input_data <- in_params[[1]]                # spatial data you created at the previous step
@@ -102,7 +102,7 @@ The inteface of this brand new tool looks like a traditional geoprocesing ArcGIS
   output_dic <- out_params[[2]]               # labelling dictionary
 ```
 
-- Now proceed with some simple data wrangling:
+:point_right: Now proceed with some simple data wrangling:
 
 ```r
 arc.open(input_data) %>%
@@ -115,8 +115,12 @@ arc.open(input_data) %>%
                                set_colnames(c("code", "variable")),
               by = "variable") %>%
     select(-variable) %>% 
-    dcast(geo ~ code) -> -> d_trans
+    dcast(geo ~ code) -> d_trans
 ```
+
+> The object obtained on the previous step does not belong to a spatial class and in order to return a feature class to the location specified by user in `out_params[[1]]` we will need to add the spatial attributes back to the data frame `d_trans`. 
+
+
 
 ### :three: Create a ternary composition map
 
