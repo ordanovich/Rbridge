@@ -134,4 +134,7 @@ Remember that you always need to respect the order of the input and output param
 
 ### :three: Create a ternary composition map
 
-You are now ready to create you ternary composition map. Here we are making use of a great ![tricolore package](https://github.com/jschoeley/tricolore) developed by [Jonas Schöley](https://github.com/jschoeley) and ![Ilya Kashnitsky](https://github.com/ikashnitsky). For more information on this package please refer to its ![vignette](https://github.com/jschoeley/tricolore#what-is-tricolore).
+You are now ready to create you ternary composition map. Here we will be making use of a great ![tricolore package](https://github.com/jschoeley/tricolore) developed by [Jonas Schöley](https://github.com/jschoeley) and [Ilya Kashnitsky](https://github.com/ikashnitsky). For more information on this package please refer to this [vignette](https://github.com/jschoeley/tricolore#what-is-tricolore).
+
+
+
