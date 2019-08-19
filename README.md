@@ -91,7 +91,7 @@ The inteface of this brand new tool looks like a traditional geoprocesing ArcGIS
 
 [data_transformation_tool.R](https://github.com/ordanovich/extensions_rbridge/blob/master/data_transformation_tool.R) corresponds to the second step in the process of preparing your data so it´s suitable for ternary map generation. 
 
-:point_right: Following the same logic we explained in the **Step 1**, let´s set up inputs and outputs:
+:point_right: Following the same logic explained in the **Step 1**, let´s set up inputs and outputs:
 
 ```r
   input_data <- in_params[[1]]                # spatial data you created at the previous step
@@ -134,4 +134,4 @@ Remember that you always need to respect the order of the input and output param
 
 ### :three: Create a ternary composition map
 
-:+1: This PR looks great - it's ready to merge! :shipit:
+You are now ready to create you ternary composition map. Here we are making use of a great ![tricolore package](https://github.com/jschoeley/tricolore) developed by [Jonas Schöley](https://github.com/jschoeley) and ![Ilya Kashnitsky](https://github.com/ikashnitsky). For more information on this package please refer to its ![vignette](https://github.com/jschoeley/tricolore#what-is-tricolore).
