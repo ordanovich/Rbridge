@@ -120,7 +120,9 @@ arc.open(input_data) %>%
 
 > The object obtained on the previous step does not belong to a spatial class and in order to return a feature class to the location specified by user in `out_params[[1]]` we will need to add the spatial attributes back to the data frame `d_trans`. 
 
+![](https://github.com/ordanovich/images/blob/master/2019-08-19_16h39_48.png?raw=true)
 
+![](https://github.com/ordanovich/images/blob/master/2019-08-19_16h41_58.png?raw=true)
 
 ### :three: Create a ternary composition map
 
