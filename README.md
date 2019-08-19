@@ -120,9 +120,17 @@ arc.open(input_data) %>%
 
 > The object obtained on the previous step does not belong to a spatial class and in order to return a feature class to the location specified by user in `out_params[[1]]` we will need to add the spatial attributes back to the data frame `d_trans`. 
 
-![](https://github.com/ordanovich/images/blob/master/2019-08-19_16h39_48.png?raw=true)
+One you have successfully completed the R code and created a new script in the same toolbox in ArcGIS (linking your tool to the source code in the *General* page), you may proceed to the next step and specify the *Parameters*: 
 
-![](https://github.com/ordanovich/images/blob/master/2019-08-19_16h41_58.png?raw=true)
+<p align="center">
+  <img src="https://github.com/ordanovich/images/blob/master/2019-08-19_16h39_48.png?raw=true">
+</p>
+
+Remember that you always need to respect the order of the input and output parameters. The final outlook of your tool might look like the one below:
+
+<p align="center">
+  <img src="https://github.com/ordanovich/images/blob/master/2019-08-19_16h41_58.png?raw=true">
+</p>
 
 ### :three: Create a ternary composition map
 
