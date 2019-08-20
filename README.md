@@ -171,7 +171,7 @@ The *Parameters* of this final script need to be specified as follows:
   <img src="https://github.com/ordanovich/images/blob/master/2019-08-19_17h51_58.png?raw=true">
 </p>
 
-As mentioned earlier, please check the numbering of the `in_params[[]]` and `out_params[[]]` of your sript against the order they eventually enter your tool: 
+As mentioned earlier, please check the numbering of the `in_params[[]]` and `out_params[[]]` of your script against the order they eventually enter your tool: 
 
 <p align="center">
   <img src="https://github.com/ordanovich/images/blob/master/2019-08-19_17h35_22.png?raw=true">
