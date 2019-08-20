@@ -179,7 +179,7 @@ As mentioned earlier, please check the numbering of the `in_params[[]]` and `out
 
 To access the full code please go to the [tricolore_mapping_tool.R](https://github.com/ordanovich/Rbridge/blob/master/tricolore_mapping_tool.R).
 
-If you´re experiencing any troubles with parameter specification you can download ready-to-use toolbox [here](https://github.com/ordanovich/Rbridge/raw/master/Tricolore%20mapping.tbx) :gift:
+If you´re experiencing any troubles with parameter specification feel free to download this [ready-to-use toolbox](https://github.com/ordanovich/Rbridge/raw/master/Tricolore%20mapping.tbx) :gift:
 
 
 
