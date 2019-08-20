@@ -171,7 +171,7 @@ The *Parameters* of this final script need to be specified as follows:
   <img src="https://github.com/ordanovich/images/blob/master/2019-08-19_17h51_58.png?raw=true">
 </p>
 
-As mentioned earlier, please check the numbering of the `in_params[[]]` and `out_params[[]]` in your sript versus the order they eventually appear in your tool: 
+As mentioned earlier, please check the numbering of the `in_params[[]]` and `out_params[[]]` of your sript against the order they eventually enter your tool: 
 
 <p align="center">
   <img src="https://github.com/ordanovich/images/blob/master/2019-08-19_17h35_22.png?raw=true">
@@ -179,7 +179,7 @@ As mentioned earlier, please check the numbering of the `in_params[[]]` and `out
 
 To access the full code please go to the [tricolore_mapping_tool.R](https://github.com/ordanovich/Rbridge/blob/master/tricolore_mapping_tool.R).
 
-If you´re experiencing any troubles with parameter specification you can download ready-to-use toolbox [here](https://github.com/ordanovich/Rbridge/raw/master/Tricolore%20mapping.tbx).
+If you´re experiencing any troubles with parameter specification you can download ready-to-use toolbox [here](https://github.com/ordanovich/Rbridge/raw/master/Tricolore%20mapping.tbx) :gift:
 
 
 
