@@ -161,15 +161,17 @@ d$rgb <- paste0("rgb(", d$red, ", ", d$green, ", ", d$blue, ")")
 r_red <- fasterize(d, raster(d, res = 2000), field = "red", fun="sum")
 ```
 :point_right: On the last step you will generate a pdf report containing:
-- :round_pushpin: a static map: `ggplot(d)+geom_sf(aes(fill = hex, geometry = geom), size = 0.1)+scale_fill_identity()`
+- :round_pushpin: a static map: `ggplot(d) + geom_sf(aes(fill = hex, geometry = geom), size = 0.1) + scale_fill_identity()`
 - :art: a color legend: `tric_var$key` 
-- :bar_chart: plots with group comparison in between-subjects designs created with the [ggstatsplot package](https://github.com/IndrajeetPatil/ggstatsplot): `ggstatsplot::ggbetweenstats(data = dd, x = variable,y = value)`
+- :bar_chart: plots with group comparison in between-subjects designs created with the [ggstatsplot package](https://github.com/IndrajeetPatil/ggstatsplot): `ggbetweenstats(data = dd, x = variable,y = value)`
+
+The *Parameters* of this final script need to be specified as follows:
 
 <p align="center">
   <img src="https://github.com/ordanovich/images/blob/master/2019-08-19_17h51_58.png?raw=true">
 </p>
 
-
+As mentioned earlier, please check the numbering of the `in_params[[]]` and `out_params[[]]` in your sript versus the order they eventually appear in your tool: 
 
 <p align="center">
   <img src="https://github.com/ordanovich/images/blob/master/2019-08-19_17h35_22.png?raw=true">
