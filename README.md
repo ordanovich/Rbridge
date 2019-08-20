@@ -153,23 +153,17 @@ cbind(d, t(col2rgb(d$hex))) -> d
 # adding an rgb formula into as a separate field to the dataframe
 d$rgb <- paste0("rgb(", d$red, ", ", d$green, ", ", d$blue, ")")
 ```
-> Remember that you can always customize the messages that appear in the pop-up window along with the bar progress label by adding the following lines to your code:
-
-```r
-arc.progress_label("Writing result to a feature class...")
-arc.progress_pos(50)
-```
-> If you would like some text output to be displayed or graphics generated while tool is executing you can simply force it to be visualized with the `print()` command.
+> Remember that you can always customize the messages that appear in the pop-up window with `arc.progress_label()` along with the bar progress label `arc.progress_pos()`. If you would also like some text output to be displayed or graphics generated while tool is executing you can simply force it to be visualized with the `print()` command.
 
 :point_right: **arcgisbinding** package supports both raster and vector formats. For the demonstration purposes you will rasterise the vector dataset that you created on the previous step following the same sequence for all RGB values, e.g.:
 
 ```r
 r_red <- fasterize(d, raster(d, res = 2000), field = "red", fun="sum")
 ```
-:point_right: On the last step you will create a pdf report where you will generate
-- 1) a static map: `ggplot(d)+geom_sf(aes(fill = hex, geometry = geom), size = 0.1)+scale_fill_identity()`
-- 2) a color legend: `tric_var$key` 
-- 3) plots with group comparison in between-subjects designs created with the [ggstatsplot package](https://github.com/IndrajeetPatil/ggstatsplot): `ggstatsplot::ggbetweenstats(data = dd, x = variable,y = value)`
+:point_right: On the last step you will generate a pdf report containing:
+- :round_pushpin: a static map: `ggplot(d)+geom_sf(aes(fill = hex, geometry = geom), size = 0.1)+scale_fill_identity()`
+- :art: a color legend: `tric_var$key` 
+- :bar_chart: plots with group comparison in between-subjects designs created with the [ggstatsplot package](https://github.com/IndrajeetPatil/ggstatsplot): `ggstatsplot::ggbetweenstats(data = dd, x = variable,y = value)`
 
 <p align="center">
   <img src="https://github.com/ordanovich/images/blob/master/2019-08-19_17h51_58.png?raw=true">
