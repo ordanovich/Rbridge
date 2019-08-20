@@ -45,17 +45,9 @@ tool_exec<- function(in_params, out_params){
   d <- arc.open(input_data) %>%
     arc.select(fields = fields_list) %>% 
     arc.data2sf()
-  
-  arc.progress_label("Simulating 243 ternary compositions...")
-  arc.progress_pos(20)
-  
-  P <- as.data.frame(prop.table(matrix(runif(3^6), ncol = 3), 1))
-  
-  colors_and_legend <- Tricolore(P, 'V1', 'V2', 'V3')
-  
-  
+ 
   arc.progress_label("Color-coding the data set and generating a color-key...")
-  arc.progress_pos(30)
+  arc.progress_pos(20)
   
   tric_var <- Tricolore(d, p1 = input_var1, p2 = input_var2, p3 = input_var3)
   
