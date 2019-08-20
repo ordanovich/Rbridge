@@ -136,8 +136,23 @@ Remember that you always need to respect the order of the input and output param
 
 You are now ready to create you ternary composition map. Here we will be making use of a great [tricolore package](https://github.com/jschoeley/tricolore) developed by [Jonas Schöley](https://github.com/jschoeley) and [Ilya Kashnitsky](https://github.com/ikashnitsky). For more information on this package please refer to the [vignette](https://github.com/jschoeley/tricolore#what-is-tricolore).
 
-You will start by specifying :arrow_down: inputs (entry **feature class** `input_data <- in_params[[1]]` and **3 variables** (`input_var1 <- in_params[[2]]; input_var2 <- in_params[[3]]; input_var3 <- in_params[[4]]`) you want you ternary map to be based on) and :arrow_up: outpus (in this case, you will create one **feature class** `output_data_vector <- out_params[[1]]` with several fields in the attribute table containing information on the color codes in different formats, **3 rasters**, one for *red* `output_data_raster_red <- out_params[[2]]`, *green* `output_data_raster_green <- out_params[[3]]` and *blue* `output_data_raster_blue <- out_params[[4]]` bands, and one static **pdf report** `output_report <- out_params[[5]]`). 
+:point_right: You will start by specifying :arrow_down: inputs (entry **feature class** `input_data <- in_params[[1]]` and **3 variables** (`input_var1 <- in_params[[2]]; input_var2 <- in_params[[3]]; input_var3 <- in_params[[4]]`) you want you ternary map to be based on) and :arrow_up: outpus (in this case, you will create one **feature class** `output_data_vector <- out_params[[1]]` with several fields in the attribute table containing information on the color codes in different formats, **3 rasters**, one for *red* `output_data_raster_red <- out_params[[2]]`, *green* `output_data_raster_green <- out_params[[3]]` and *blue* `output_data_raster_blue <- out_params[[4]]` bands, and one static **pdf report** `output_report <- out_params[[5]]`). 
 
+:point_right: Once the data is successfully read into ArcGIS and set to a spatial dataframe with `d <- arc.open(input_data) %>% arc.select(fields = fields_list) %>% arc.data2sf()` you are ready to run the *Tricolore* function in order to color-code your data and generate a color key:
+
+```r
+# Color-code three-part compositions with a ternary balance color scale and return a color key
+tric_var <- Tricolore(d, p1 = input_var1, p2 = input_var2, p3 = input_var3)
+
+# Adding back the vector of colors to the spatial data frame
+d$hex <- tric_var$rgb
+
+# converting hex code to rgb values
+cbind(d, t(col2rgb(d$hex))) -> d
+
+# adding an rgb formula into as a separate field to the dataframe
+d$rgb <- paste0("rgb(", d$red, ", ", d$green, ", ", d$blue, ")")
+```
 
 <p align="center">
   <img src="https://github.com/ordanovich/images/blob/master/2019-08-19_17h51_58.png?raw=true">
