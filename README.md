@@ -13,8 +13,11 @@ Get started with the R-ArcGIS Bridge :
 ## :hospital: Extensions for the Web Portal for Health and Population in Spain
 
 <p align="center">
-  <img src="https://github.com/ordanovich/images/blob/master/portadaWlogos.png?raw=true" onclick="http://longpop-itn.eu/">
+  <img src="https://github.com/ordanovich/images/blob/master/portadaWlogos.png?raw=true">
 </p>
+<a href="#" id="bottle" onclick="document.location=this.id+'.html';return false;" >
+    <img src="https://github.com/ordanovich/images/blob/master/portadaWlogos.png?raw=true" alt="bottle" class="thumbnails" />
+</a>
 
 Here you can access the source scripts of the geoprocessing tools built upon the [**arcgisbinding** package](https://r-arcgis.github.io/assets/arcgisbinding-vignette.html). The three tools down below are thought to be executed sequentially and will help you to get up and running with the Bridge. This toolset if focused on data retrieval from the Eurostat repository with the [eurostat package](http://ropengov.github.io/eurostat/), data processing and mapping using the [tricolore package](https://github.com/jschoeley/tricolore), iplemented and executed in the [ArcGIS desktop software](http://desktop.arcgis.com/en/).
 
