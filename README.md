@@ -15,7 +15,7 @@ Get started with the R-ArcGIS Bridge :
 <p align="center">
   <img src="https://github.com/ordanovich/images/blob/master/portadaWlogos.png?raw=true">
 </p>
-<a href="#" id="bottle" onclick="document.location=this.id+'.html';return false;" >
+<a href="#" id="bottle" onclick="http://longpop-itn.eu/';return true;" >
     <img src="https://github.com/ordanovich/images/blob/master/portadaWlogos.png?raw=true" alt="bottle" class="thumbnails" />
 </a>
 
