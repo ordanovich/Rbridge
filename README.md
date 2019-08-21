@@ -11,7 +11,9 @@ Get started with the R-ArcGIS Bridge :
 - [R-ArcGIS Bridge Workflow Demo](https://community.esri.com/videos/3343)
 
 ## :hospital: Extensions for the Web Portal for Health and Population in Spain
-
+<p align="center">
+  <img src="https://github.com/ordanovich/images/blob/master/portadaWlogos.png?raw=true">
+</p>
 Here you can access the source scripts of the geoprocessing tools built upon the [**arcgisbinding** package](https://r-arcgis.github.io/assets/arcgisbinding-vignette.html). The three tools down below are thought to be executed sequentially and will help you to get up and running with the Bridge. This toolset if focused on data retrieval from the Eurostat repository with the [eurostat package](http://ropengov.github.io/eurostat/), data processing and mapping using the [tricolore package](https://github.com/jschoeley/tricolore), iplemented and executed in the [ArcGIS desktop software](http://desktop.arcgis.com/en/).
 
 ### :one: Retrieve data from Eurostat
