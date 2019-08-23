@@ -177,7 +177,7 @@ The *Parameters* of this final script need to be specified as follows:
 As mentioned earlier, please check the numbering of the `in_params[[]]` and `out_params[[]]` of your script against the order they eventually enter your tool: 
 
 <p align="center">
-  <img src="https://github.com/ordanovich/images/blob/master/2019-08-19_17h35_22.png?raw=true">
+  <img src="https://github.com/ordanovich/images/blob/master/2019-08-23_11h25_00.png?raw=true">
 </p>
 
 To access the full code please go to the [tricolore_mapping_tool.R](https://github.com/ordanovich/Rbridge/blob/master/tricolore_mapping_tool.R).
