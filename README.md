@@ -182,16 +182,19 @@ As mentioned earlier, please check the numbering of the `in_params[[]]` and `out
 
 To access the full code please go to the [tricolore_mapping_tool.R](https://github.com/ordanovich/Rbridge/blob/master/tricolore_mapping_tool.R).
 
-If you´re experiencing any troubles with parameter specification feel free to download this [ready-to-use toolbox](https://github.com/ordanovich/Rbridge/raw/master/Tricolore%20mapping.tbx) :gift:
 
 ## :crystal_ball: Seamless integration with your workflow
+
+One of the most powerful sides that R-ArcGIS offers is the possibility to include your tools built upon the R code into the traditional geoprocessing workflow:
 
 <p align="center">
   <img src="https://github.com/ordanovich/images/blob/master/2019-08-23_11h06_47.png?raw=true">
 </p>
 
+The model abpve goes throw the three steps of downloading, transfroming and mapping the data and eventually combines three output rasters of red, green and blue into a singular composite unit. The legend is generated on the fly and displayed to user in a pop-up window:
+  
 <p align="center">
   <img src="https://github.com/ordanovich/images/blob/master/2019-08-23_11h05_44.png?raw=true">
 </p>
 
-
+If you´re experiencing any troubles with parameter specification feel free to download this [ready-to-use toolbox](https://github.com/ordanovich/Rbridge/raw/master/Tricolore%20mapping.tbx) :gift:
