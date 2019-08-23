@@ -185,13 +185,13 @@ To access the full code please go to the [tricolore_mapping_tool.R](https://gith
 
 ## :crystal_ball: Seamless integration with your workflow
 
-One of the most powerful sides that R-ArcGIS offers is the possibility to include your tools built upon the R code into the traditional geoprocessing workflow:
+One of the most powerful sides that R-ArcGIS offers is the possibility to include your tools built upon the R code into the traditional geoprocessing workflow.
 
 <p align="center">
   <img src="https://github.com/ordanovich/images/blob/master/2019-08-23_11h06_47.png?raw=true">
 </p>
 
-The model abpve goes throw the three steps of downloading, transfroming and mapping the data and eventually combines three output rasters of red, green and blue into a singular composite unit. The legend is generated on the fly and displayed to user in a pop-up window:
+The model above goes throw the three steps of downloading, transfroming and mapping the data and eventually combines three output rasters of red, green and blue bands into a singular composite unit. The legend is generated on the fly and displayed to user in a pop-up window.
   
 <p align="center">
   <img src="https://github.com/ordanovich/images/blob/master/2019-08-23_11h05_44.png?raw=true">
