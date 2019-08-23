@@ -184,5 +184,14 @@ To access the full code please go to the [tricolore_mapping_tool.R](https://gith
 
 If you´re experiencing any troubles with parameter specification feel free to download this [ready-to-use toolbox](https://github.com/ordanovich/Rbridge/raw/master/Tricolore%20mapping.tbx) :gift:
 
+## :crystal_ball: Seamless integration with your workflow
+
+<p align="center">
+  <img src="https://github.com/ordanovich/images/blob/master/2019-08-23_11h06_47.png?raw=true">
+</p>
+
+<p align="center">
+  <img src="https://github.com/ordanovich/images/blob/master/2019-08-23_11h05_44.png?raw=true">
+</p>
 
 
