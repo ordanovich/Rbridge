@@ -63,7 +63,7 @@ tool_exec<- function(in_params, out_params){
   arc.progress_label("Writing result to a feature class...")
   arc.progress_pos(50)
   
-  arc.write(paste0(output_data_vector, "/tricolore_output_data.shp"),
+  arc.write(paste0(output_data_vector),
             d %>% st_transform(3035), overwrite = TRUE)
   
   arc.progress_label("Writing results to rasters...")
